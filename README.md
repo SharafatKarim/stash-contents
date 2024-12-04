@@ -16,7 +16,7 @@ git submodule add https://github.com/SharafatKarim/stash-contents contents
 
 ## License
 
-This repository is licensed under the MIT License.
+This repository is licensed under the [MIT License](LICENSE).
 
 ## Contrubution Guideline
 
