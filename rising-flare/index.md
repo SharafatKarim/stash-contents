@@ -2,8 +2,9 @@
 title: index
 ---
 ## Admin
+
 Got a little bit of issues concerning admin privileges, so lemme rule them out.
-- 
+- [[Flaric Admins]]
 
 ## Plans
 
