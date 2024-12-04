@@ -1,6 +1,6 @@
 # Stash Contents
 
-Collection of some random thoughts, binded by `obsidian`. It can be used for deploying sites like, [quartz](https://quartz.jzhao.xyz/).
+Collection of some random thoughts, bidden by `obsidian`. It can be used for deploying sites like, [quartz](https://quartz.jzhao.xyz/).
 
 Live page is available here,
 
@@ -11,7 +11,7 @@ Live page is available here,
 This note can be used as a submodule in your obsidian vault.
 
 ```bash
-git submodule add https://github.com/SharafatKarim/stash-contents contents
+git submodule add https://github.com/SharafatKarim/stash-contents content
 ```
 
 ## License

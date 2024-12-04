@@ -3,5 +3,8 @@ title: Sharafat's Stash
 ---
 # A bit of plan
 
-Sometimes it's much more interesting to build some weird plan and work on it, right?
-- [[Flaric Site]]
+## Rising Flare
+
+It's a little community, built around the people of PSTU CSE-19 (নবারুন ১৯) batch, and luckily I am one of them so why not contribute?
+
+- [[stash/Rising Flare/index|Rising Flare]]
