@@ -7,7 +7,12 @@ Let's start our fun!
 # Stash
 
 Where is it actually? Let's have it!
+
 - [[stash/index|My Stash]]
+
+# Academic
+
+Some academic stuff, that may be helpful for some?
 
 # Communities
 
