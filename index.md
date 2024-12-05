@@ -18,7 +18,7 @@ Some academic stuff, that may be helpful for some?
 
 ## Rising Flare
 
-It's a little community, built around the people of PSTU CSE-19 (নবারুন ১৯) batch, and luckily I am one of them, so why not contribute?
+It's a little community, built around the people of PSTU x CSE-19 (নবারুন ১৯) batch, and luckily I am one of them, so why not contribute?
 
 - [[rising-flare/index|Rising Flare]]
 
