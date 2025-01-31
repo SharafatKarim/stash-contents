@@ -5,88 +5,112 @@ each query when run on `large-university.db` (download this file and run SQLite 
 `sqlite3` large-university.db or upload to the browser-based version).
 
 1. Find the names of those departments whose budget is higher than that of Astronomy. List them in alphabetic order. 
-```
-dept_name
-Athletics
-Biology
-Cybernetics
-Finance
-History
-Math
-Physics
-Psychology
-```
+```sql
+SELECT 
+    dept_name
+FROM
+    department
+WHERE
+    budget > (SELECT 
+            budget
+        FROM
+            department
+        WHERE
+            dept_name = 'Astronomy');
+
+-- # dept_name
+-- 'Athletics'
+-- 'Biology'
+-- 'Cybernetics'
+-- 'Finance'
+-- 'History'
+-- 'Math'
+-- 'Physics'
+-- 'Psychology'
+            ```
 
 2. Display a list of all instructors, showing each instructor&#39;s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
-```
-ID number_of_sections
-16807 0
-31955 0
+```sql
+SELECT 
+    I.ID, COUNT(T.ID) as number_of_sections
+FROM
+    instructor AS I
+        NATURAL LEFT JOIN
+    teaches AS T
+GROUP BY I.ID
+ORDER BY number_of_sections;
 
-35579 0
-37687 0
-4034 0
-50885 0
-52647 0
-57180 0
-58558 0
-59795 0
-63395 0
-64871 0
-72553 0
-74426 0
-78699 0
-79653 0
-95030 0
-96895 0
-97302 0
-15347 1
-25946 1
-4233 1
-42782 1
-48507 1
-48570 1
-50330 1
-65931 1
-73623 1
-80759 1
-90376 1
-90643 1
-14365 2
-28097 2
-28400 2
-3335 2
-63287 2
-81991 2
-19368 3
-34175 3
-41930 3
-3199 4
-43779 4
-95709 4
-36897 5
-74420 6
-77346 6
-79081 6
-99052 9
-6569 10
-22591 13
+-- # ID, number_of_sections
+-- '35579', '0'
+-- '52647', '0'
+-- '50885', '0'
+-- '57180', '0'
+-- '58558', '0'
+-- '59795', '0'
+-- '63395', '0'
+-- '64871', '0'
+-- '72553', '0'
+-- '4034', '0'
+-- '37687', '0'
+-- '74426', '0'
+-- '78699', '0'
+-- '79653', '0'
+-- '31955', '0'
+-- '95030', '0'
+-- '96895', '0'
+-- '16807', '0'
+-- '97302', '0'
+-- '15347', '1'
+-- '73623', '1'
+-- '65931', '1'
+-- '80759', '1'
+-- '90376', '1'
+-- '90643', '1'
+-- '48570', '1'
+-- '25946', '1'
+-- '50330', '1'
+-- '4233', '1'
+-- '42782', '1'
+-- '48507', '1'
+-- '14365', '2'
+-- '63287', '2'
+-- '3335', '2'
+-- '28400', '2'
+-- '81991', '2'
+-- '28097', '2'
+-- '41930', '3'
+-- '19368', '3'
+-- '34175', '3'
+-- '43779', '4'
+-- '95709', '4'
+-- '3199', '4'
+-- '36897', '5'
+-- '77346', '6'
+-- '79081', '6'
+-- '74420', '6'
+-- '99052', '9'
+-- '6569', '10'
+-- '22591', '13'
 ```
 
 3. For each student who has retaken a course at least twice (i.e., the student has taken the course at least three times), show the course ID and the student&#39;s ID. Please display your results in order of course ID and do not display duplicate rows. 
-```
-course_id ID
-362 16480
-362 16969
-362 27236
-362 39925
-362 39978
-362 44881
-362 49611
-362 5414
+```sql
+select distinct course_id, ID
+	from takes
+    group by ID, course_id having count(*) > 2
+    order by course_id;
 
-362 69581
-362 9993
+-- # course_id, ID
+-- '362', '16480'
+-- '362', '16969'
+-- '362', '27236'
+-- '362', '39925'
+-- '362', '39978'
+-- '362', '44881'
+-- '362', '49611'
+-- '362', '5414'
+-- '362', '69581'
+-- '362', '9993'
 ```
 
 4. Find the names of Biology students who have taken at least 3 Accounting courses. 
@@ -100,6 +124,7 @@ Uchiyama
 Schill
 Kaminsky
 Giannoulis
+
 ```
 
 5. Find the sections that had maximum enrollment in Fall 2010. 
