@@ -14,6 +14,8 @@ Where is it actually? Let's have it!
 
 Some academic stuff, that may be helpful for some?
 
+- [[academic/index|Academic Stuffs]]
+
 # Communities
 
 ## Rising Flare
