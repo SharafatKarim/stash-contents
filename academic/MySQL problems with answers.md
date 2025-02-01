@@ -114,23 +114,53 @@ select distinct course_id, ID
 ```
 
 4. Find the names of Biology students who have taken at least 3 Accounting courses. 
-```
-name
-Michael
-Dalton
-Shoji
-Wehen
-Uchiyama
-Schill
-Kaminsky
-Giannoulis
+```sql
+select name
+from student natural join (
+	select ID from takes
+	where course_id in ( select course_id from course
+		where dept_name = "Accounting")
+		group by ID having count(*) > 2
+    ) as T where dept_name = "Biology";
 
+SELECT s.name
+FROM student s
+JOIN takes t ON s.ID = t.ID
+JOIN course c ON t.course_id = c.course_id
+WHERE s.dept_name = 'Biology'
+AND c.dept_name = 'Accounting'
+GROUP BY s.ID
+HAVING COUNT(*) > 2;
+
+-- # name
+-- 'Michael'
+-- 'Dalton'
+-- 'Shoji'
+-- 'Wehen'
+-- 'Uchiyama'
+-- 'Schill'
+-- 'Kaminsky'
+-- 'Giannoulis'
 ```
 
 5. Find the sections that had maximum enrollment in Fall 2010. 
-```
-course_id sec_id
-867 2
+```sql
+SELECT course_id, sec_id 
+FROM takes
+WHERE semester = 'Fall' AND year = 2010
+GROUP BY course_id, sec_id
+HAVING COUNT(ID) = (
+    SELECT MAX(enrollment_count) 
+    FROM (
+        SELECT COUNT(ID) AS enrollment_count
+        FROM takes
+        WHERE semester = 'Fall' AND year = 2010
+        GROUP BY course_id, sec_id
+    ) AS subquery
+);
+
+-- # course_id, sec_id
+-- '867', '2'
 ```
 
 6. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like &#39;Tort Law&#39; or &#39;Environmental Law&#39;). 6
