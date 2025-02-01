@@ -1,6 +1,8 @@
 ---
 title: Sharafat's Stash
 ---
+# Sweet docs
+
 # A bit of plan
 
 Nothing exists here for now!
