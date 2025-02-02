@@ -163,14 +163,31 @@ HAVING COUNT(ID) = (
 -- '867', '2'
 ```
 
-6. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like &#39;Tort Law&#39; or &#39;Environmental Law&#39;). 6
-```
-name course_count
-Nakajima 4
-Nikut 4
-Hahn- 4
-Nanda 4
-Schinag 4
+6. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like 'Tort Law' or 'Environmental Law'). 
+```sql
+select name, count(*)
+from student as S
+join takes T on S.ID = T.ID
+where T.course_id in (
+	select course_id
+    from course
+    where title like "%Law%" )
+group by S.ID
+having count(*) >= ( 
+	select count(course_id) / 2 
+	from (   
+		select course_id
+		from course
+		where title like "%Law%" ) 
+        as D 
+	);
+
+-- # name, count(*)
+-- 'Nakajima', '4'
+-- 'Nikut', '4'
+-- 'Hahn-', '4'
+-- 'Nanda', '4'
+-- 'Schinag', '4'
 ```
 
 7. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use
@@ -239,28 +256,28 @@ $42,000.
 
 ## Problem set 3
 
-01. Find the titles of courses in the Comp. Sci. department that have 3 credits.
-02. Find the IDs of all students who were taught by an instructor named Einstein; make
+1. Find the titles of courses in the Comp. Sci. department that have 3 credits.
+2. Find the IDs of all students who were taught by an instructor named Einstein; make
 sure there are no duplicates in the result.
-03. Find the ID and name of each student who has taken at least one Comp. Sci. course;
+3. Find the ID and name of each student who has taken at least one Comp. Sci. course;
 make sure there are no duplicate names in the result.
-04. Find the course id, section id, and building for each section of a Biology course.
-05. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
+4. Find the course id, section id, and building for each section of a Biology course.
+5. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
 (in ascending order).
-06. Output instructor names and buildings for each building an instructor has taught in.
+6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
-07. Find the names of those departments whose budget is higher than that of Astronomy.
+7. Find the names of those departments whose budget is higher than that of Astronomy.
 List them in alphabetic order.1
-08. Output instructor names and buildings for each building an instructor has taught in.
+8. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
-09. For each student who has retaken a course at least twice (i.e., the student has taken the
+9. For each student who has retaken a course at least twice (i.e., the student has taken the
 course at least three times), show the course ID and the student&#39;s ID. Please display
 your results in order of course ID and do not display duplicate rows.
 
-010. Find the names of Biology students who have taken at least 3 Accounting
+10. Find the names of Biology students who have taken at least 3 Accounting
 courses
-011. Find the rank and name of the 10 students who earned the most A grades (A-,
+11. Find the rank and name of the 10 students who earned the most A grades (A-,
 A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does
 not support window functions.
