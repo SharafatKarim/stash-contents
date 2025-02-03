@@ -1209,6 +1209,28 @@ where name = "Einstein" ) ;
 ```
 3. Find the ID and name of each student who has taken at least one Comp. Sci. course;
 make sure there are no duplicate names in the result.
+```sql
+select distinct ID, name
+from student 
+natural join takes 
+where takes.course_id in (
+	select course_id
+    from course 
+    where dept_name = "Comp. Sci."
+);
+
+-- small db
+# ID, name
+'00128', 'Zhang'
+'12345', 'Shankar'
+'45678', 'Levy'
+'54321', 'Williams'
+'76543', 'Brown'
+'98765', 'Bourikas'
+
+-- big db
+-- big output
+```
 4. Find the course id, section id, and building for each section of a Biology course.
 5. Output instructor names sorted by the ratio of their salary to their department's budget
 (in ascending order).
