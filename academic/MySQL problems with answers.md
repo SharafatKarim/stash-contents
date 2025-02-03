@@ -29,7 +29,7 @@ WHERE
 'Psychology'
             ```
 
-2. Display a list of all instructors, showing each instructor&#39;s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
+2. Display a list of all instructors, showing each instructor's ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
 ```sql
 SELECT 
     I.ID, COUNT(T.ID) as number_of_sections
@@ -93,7 +93,7 @@ ORDER BY number_of_sections;
 '22591', '13'
 ```
 
-3. For each student who has retaken a course at least twice (i.e., the student has taken the course at least three times), show the course ID and the student&#39;s ID. Please display your results in order of course ID and do not display duplicate rows. 
+3. For each student who has retaken a course at least twice (i.e., the student has taken the course at least three times), show the course ID and the student's ID. Please display your results in order of course ID and do not display duplicate rows. 
 ```sql
 select distinct course_id, ID
 	from takes
@@ -414,18 +414,261 @@ where salary > 70000;
 ```
 5. For all instructors in the university who have taught some course, find their names and the course ID of
 all courses they taught.
+```sql
+select I.name, T.course_id
+from instructor I
+natural join teaches T
+order by I.name;
+
+-- small db
+# name, course_id
+'Brandt', 'CS-190'
+'Brandt', 'CS-190'
+'Brandt', 'CS-319'
+'Crick', 'BIO-101'
+'Crick', 'BIO-301'
+'Einstein', 'PHY-101'
+'El Said', 'HIS-351'
+'Katz', 'CS-101'
+'Katz', 'CS-319'
+'Kim', 'EE-181'
+'Mozart', 'MU-199'
+'Srinivasan', 'CS-101'
+'Srinivasan', 'CS-315'
+'Srinivasan', 'CS-347'
+'Wu', 'FIN-201'
+
+-- large db
+# name, course_id
+'Atanassov', '603'
+'Atanassov', '604'
+'Bawa', '457'
+'Bietzk', '158'
+'Bondi', '571'
+'Bondi', '274'
+'Bondi', '747'
+'Bourrier', '960'
+'Bourrier', '949'
+'Choll', '461'
+'DAgostino', '663'
+'DAgostino', '338'
+'DAgostino', '338'
+'DAgostino', '352'
+'DAgostino', '400'
+'DAgostino', '400'
+'DAgostino', '991'
+'DAgostino', '642'
+'DAgostino', '599'
+'DAgostino', '482'
+'DAgostino', '962'
+'DAgostino', '972'
+'DAgostino', '867'
+'Dale', '893'
+'Dale', '237'
+'Dale', '629'
+'Dale', '237'
+'Dale', '927'
+'Dale', '748'
+'Dale', '802'
+'Dale', '158'
+'Dale', '496'
+'Gustafsson', '169'
+'Gustafsson', '169'
+'Gustafsson', '631'
+'Gustafsson', '561'
+'Jaekel', '852'
+'Jaekel', '334'
+'Kean', '366'
+'Kean', '808'
+'Lembr', '200'
+'Lembr', '843'
+'Lent', '626'
+'Liley', '192'
+'Luo', '679'
+'Mahmoud', '704'
+'Mahmoud', '735'
+'Mahmoud', '735'
+'Mahmoud', '493'
+'Mahmoud', '864'
+'Mahmoud', '486'
+'Mingoz', '362'
+'Mingoz', '527'
+'Mingoz', '137'
+'Mingoz', '362'
+'Mingoz', '426'
+'Mingoz', '304'
+'Mingoz', '319'
+'Mingoz', '445'
+'Mingoz', '349'
+'Mingoz', '362'
+'Morris', '696'
+'Morris', '791'
+'Morris', '795'
+'Morris', '313'
+'Morris', '242'
+'Pimenta', '875'
+'Queiroz', '559'
+'Romero', '105'
+'Romero', '489'
+'Romero', '105'
+'Romero', '476'
+'Sakurai', '468'
+'Sakurai', '960'
+'Sakurai', '258'
+'Sakurai', '270'
+'Sarkar', '867'
+'Shuming', '468'
+'Sullivan', '694'
+'Tung', '692'
+'Tung', '401'
+'Tung', '421'
+'Ullman ', '408'
+'Ullman ', '974'
+'Ullman ', '345'
+'Ullman ', '200'
+'Ullman ', '760'
+'Ullman ', '408'
+'Valtchev', '702'
+'Valtchev', '415'
+'Vicentino', '793'
+'Voronina', '376'
+'Voronina', '239'
+'Voronina', '959'
+'Voronina', '443'
+'Voronina', '612'
+'Voronina', '443'
+'Wieland', '581'
+'Wieland', '591'
+'Wieland', '545'
+```
 6. Find the names of all instructors whose salary is greater than at least one instructor in the Biology
 department.
+```sql
+select name 
+from instructor
+where dept_name = "Biology"
+and salary > ( select min(S.salary) from (
+	select salary
+    from instructor
+    where dept_name = "Biology"
+) as S );
 
+-- big db
+# name
+'Valtchev'
+```
 7. Find the advisor of the student with ID 12345
+```sql
+select * from advisor
+where s_ID = 12345;
+
+-- small db
+# s_ID, i_ID
+'12345', '10101'
+```
 8. Find the average salary of all instructors.
-9. Find the names of all departments whose building name includes the substring &#39;Watson&#39;.
+```sql
+select avg(I.salary) average_salary from
+(select salary from instructor) as I;
+
+-- small db
+# average_salary
+'74833.333333'
+
+-- big db
+# average_salary
+'77600.188200'
+```
+9. Find the names of all departments whose building name includes the substring 'Watson'.
+```sql
+select dept_name from department
+where building like "%Watson%";
+
+-- small db
+# dept_name
+'Biology'
+'Physics'
+```
 10. Find the names of instructors with salary amounts between $90,000 and $100,000.
+```sql
+select name from instructor
+where salary between 90000 and 100000;
+
+-- small db
+# name
+'Wu'
+'Einstein'
+'Brandt'
+
+-- large db
+# name
+'Yazdi'
+'Liley'
+'McKinnon'
+'Sullivan'
+'Mahmoud'
+'Dale'
+```
 11. Find the instructor names and the courses they taught for all instructors in the Biology department who
 have taught some course.
+```sql
+select name, course_id
+from instructor 
+natural left join teaches
+where dept_name = "Biology";
+
+-- small db
+# name, course_id
+'Crick', 'BIO-101'
+'Crick', 'BIO-301'
+
+-- large db
+# name, course_id
+'Queiroz', '559'
+'Valtchev', '415'
+'Valtchev', '702'
+```
 12. Find the courses taught in Fall-2009 semester.
+```sql
+select course_id from teaches
+where semester = "Fall" and year = 2009;
+
+-- big db
+# course_id
+'105'
+'237'
+'242'
+'304'
+'334'
+'486'
+'960'
+```
 13. Find the set of all courses taught either in Fall-2009 or in Spring-2010.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) or (semester = "Spring" and year = 2010);
+
+-- big db
+# course_id
+'105'
+'237'
+'242'
+'270'
+'304'
+'334'
+'443'
+'486'
+'493'
+'679'
+'692'
+'735'
+'960'
+```
 14. Find the set of all courses taught in the Fall-2009 as well as in Spring-2010.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+```
 15. Find all courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
 16. Find all instructors who appear in the instructor relation with null values for salary.
 17. Find the average salary of instructors in the Finance department.
@@ -449,7 +692,7 @@ Biology department.
 31. Find all students who have taken all the courses offered in the Biology department.
 32. Find all courses that were offered at most once in 2009.
 33. Find all courses that were offered at least twice in 2009.
-34. Find the average instructors&#39; salaries of those departments where the average salary is greater than
+34. Find the average instructors' salaries of those departments where the average salary is greater than
 $42,000.
 35. Find the maximum across all departments of the total salary at each department.
 36. List all departments along with the number of instructors in each department.
@@ -462,7 +705,7 @@ sure there are no duplicates in the result.
 39. Find the ID and name of each student who has taken at least one Comp. Sci. course;
 make sure there are no duplicate names in the result.
 40. Find the course id, section id, and building for each section of a Biology course.
-41. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
+41. Output instructor names sorted by the ratio of their salary to their department's budget
 (in ascending order).
 42. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
@@ -473,7 +716,7 @@ List them in alphabetic order.1
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
 45. For each student who has retaken a course at least twice (i.e., the student has taken the
-course at least three times), show the course ID and the student&#39;s ID. Please display
+course at least three times), show the course ID and the student's ID. Please display
 your results in order of course ID and do not display duplicate rows.
 
 46. Find the names of Biology students who have taken at least 3 Accounting

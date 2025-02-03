@@ -17,7 +17,7 @@ Physics
 Psychology
 ```
 
-2. Display a list of all instructors, showing each instructor&#39;s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
+2. Display a list of all instructors, showing each instructor's ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
 ```
 ID number_of_sections
 16807 0
@@ -73,7 +73,7 @@ ID number_of_sections
 22591 13
 ```
 
-3. For each student who has retaken a course at least twice (i.e., the student has taken the course at least three times), show the course ID and the student&#39;s ID. Please display your results in order of course ID and do not display duplicate rows. 
+3. For each student who has retaken a course at least twice (i.e., the student has taken the course at least three times), show the course ID and the student's ID. Please display your results in order of course ID and do not display duplicate rows. 
 ```
 course_id ID
 362 16480
@@ -147,7 +147,7 @@ department.
 
 7. Find the advisor of the student with ID 12345
 8. Find the average salary of all instructors.
-9. Find the names of all departments whose building name includes the substring &#39;Watson&#39;.
+9. Find the names of all departments whose building name includes the substring 'Watson'.
 10. Find the names of instructors with salary amounts between $90,000 and $100,000.
 11. Find the instructor names and the courses they taught for all instructors in the Biology department who
 have taught some course.
@@ -177,7 +177,7 @@ Biology department.
 31. Find all students who have taken all the courses offered in the Biology department.
 32. Find all courses that were offered at most once in 2009.
 33. Find all courses that were offered at least twice in 2009.
-34. Find the average instructors&#39; salaries of those departments where the average salary is greater than
+34. Find the average instructors' salaries of those departments where the average salary is greater than
 $42,000.
 35. Find the maximum across all departments of the total salary at each department.
 36. List all departments along with the number of instructors in each department.
@@ -190,7 +190,7 @@ sure there are no duplicates in the result.
 3. Find the ID and name of each student who has taken at least one Comp. Sci. course;
 make sure there are no duplicate names in the result.
 4. Find the course id, section id, and building for each section of a Biology course.
-5. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
+5. Output instructor names sorted by the ratio of their salary to their department's budget
 (in ascending order).
 6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
@@ -201,7 +201,7 @@ List them in alphabetic order.1
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
 9. For each student who has retaken a course at least twice (i.e., the student has taken the
-course at least three times), show the course ID and the student&#39;s ID. Please display
+course at least three times), show the course ID and the student's ID. Please display
 your results in order of course ID and do not display duplicate rows.
 
 10. Find the names of Biology students who have taken at least 3 Accounting
