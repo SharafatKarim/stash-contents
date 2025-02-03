@@ -27,8 +27,7 @@ WHERE
 'Math'
 'Physics'
 'Psychology'
-            ```
-
+```
 2. Display a list of all instructors, showing each instructor's ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. 
 ```sql
 SELECT 
@@ -1251,6 +1250,80 @@ where dept_name = "Biology";
 ```
 5. Output instructor names sorted by the ratio of their salary to their department's budget
 (in ascending order).
+```sql
+select name
+from instructor
+natural left join department
+order by (salary/ budget) asc;
+
+-- small db
+# name
+'Mozart'
+'Srinivasan'
+'Singh'
+'Wu'
+'Katz'
+'Crick'
+'Brandt'
+'Kim'
+'El Said'
+'Califieri'
+'Gold'
+'Einstein'
+
+-- big data
+# name
+'Konstantinides'
+'Kean'
+'Tung'
+'Queiroz'
+'DAgostino'
+'Lembr'
+'Soisalon-Soininen'
+'Yin'
+'Desyl'
+'Murata'
+'Bawa'
+'Bertolino'
+'Hau'
+'Pimenta'
+'Ullman '
+'Shuming'
+'Gutierrez'
+'Dale'
+'McKinnon'
+'Valtchev'
+'Mingoz'
+'Vicentino'
+'Romero'
+'Voronina'
+'Yazdi'
+'Arinb'
+'Jaekel'
+'Luo'
+'Choll'
+'Bietzk'
+'Pingr'
+'Liley'
+'Sarkar'
+'Bancilhon'
+'Moreira'
+'Sakurai'
+'Lent'
+'Morris'
+'Atanassov'
+'Wieland'
+'Mahmoud'
+'Arias'
+'Gustafsson'
+'Dusserre'
+'Levine'
+'Sullivan'
+'Kenje'
+'Mird'
+'Bourrier'
+'Bondi'
+```
 6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
