@@ -768,16 +768,185 @@ group by dept_name;
 'Biology', '61287.250000'
 ```
 20. Find the number of instructors in each department who teach a course in the Spring-2010 semester.
+```sql
+select dept_name, count(ID)
+from department
+natural join instructor
+where ID in (
+	select ID from teaches
+    where semester = "Spring" 
+    and year = 2010
+) 
+group by dept_name;
+
+--big db
+# dept_name, count(ID)
+'Athletics', '1'
+'English', '2'
+'Physics', '1'
+'Geology', '1'
+```
 21. List out the departments where the average salary of the instructors is more than $42,000.
+```sql
+select dept_name
+from department D
+where ( select avg(salary) from (
+	select salary
+    from instructor I
+    where D.dept_name = I.dept_name
+) as T ) > 42000;
+
+select distinct dept_name
+from instructor
+group by dept_name
+having avg(salary) > 42000;
+
+-- small db
+# dept_name
+'Biology'
+'Comp. Sci.'
+'Elec. Eng.'
+'Finance'
+'History'
+'Physics'
+
+-- big db
+# dept_name
+'Accounting'
+'Astronomy'
+'Athletics'
+'Biology'
+'Comp. Sci.'
+'Cybernetics'
+'Elec. Eng.'
+'English'
+'Finance'
+'Geology'
+'Languages'
+'Marketing'
+'Mech. Eng.'
+'Physics'
+'Pol. Sci.'
+'Psychology'
+'Statistics'
+```
 22. For each course section offered in 2009, find the average total credits (tot cred) of all students enrolled
 in the section, if the section had at least 2 students.
+```sql
+select course_id, sec_id, avg(tot_cred)
+from takes 
+natural join student 
+where year = 2009
+group by sec_id, course_id
+having count(*) > 1;
+
+-- big db
+# course_id, sec_id, avg(tot_cred)
+'105', '1', '68.3578'
+'237', '2', '65.6656'
+'242', '1', '64.4576'
+'304', '1', '64.9023'
+'334', '1', '62.8806'
+'486', '1', '64.8980'
+'604', '1', '65.7233'
+'960', '1', '66.0847'
+'972', '1', '65.2607'
+```
 23. Find all the courses taught in both the Fall-2009 and Spring-2010 semesters.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+```
 24. Find all the courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
-25. Select the names of instructors whose names are neither &quot;Mozart&quot; nor &quot;Einstein&quot;.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and not (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+except ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- big db
+# course_id
+'105'
+'237'
+'242'
+'304'
+'334'
+'486'
+'960'
+```
+25. Select the names of instructors whose names are neither 'Mozart' nor 'Einstein'.
+```sql
+select name from instructor
+where name not in ("Mozart", "Einstein");
+
+-- small db
+# name
+'Srinivasan'
+'Wu'
+'El Said'
+'Gold'
+'Katz'
+'Califieri'
+'Singh'
+'Crick'
+'Brandt'
+'Kim'
+```
 26. Find the total number of (distinct) students who have taken course sections taught by the instructor
 with ID 110011.
+```sql
+select count(T.ID)
+from takes T
+natural join section S
+where "110011" in (
+	select ID
+    from teaches ST
+    where T.course_id = ST.course_id
+    and T.sec_id = ST.sec_id
+    and T.semester = ST.semester
+    and T.year = ST.year
+);
+
+SELECT COUNT(DISTINCT t.ID) AS total_students
+FROM takes t
+JOIN teaches te ON t.course_id = te.course_id 
+               AND t.sec_id = te.sec_id 
+               AND t.semester = te.semester 
+               AND t.year = te.year
+WHERE te.ID = '110011';
+```
 27. Find the ID and names of all instructors whose salary is greater than at least one instructor in the History
 department.
+```sql
+select ID, name
+from instructor
+where salary > ( select min(T.salary) from (
+	select salary
+    from instructor
+    where dept_name = "History"
+) as T );
+
+-- small db
+# ID, name
+'10101', 'Srinivasan'
+'12121', 'Wu'
+'22222', 'Einstein'
+'33456', 'Gold'
+'45565', 'Katz'
+'58583', 'Califieri'
+'76543', 'Singh'
+'76766', 'Crick'
+'83821', 'Brandt'
+'98345', 'Kim'
+```
 28. Find the names of all instructors that have a salary value greater than that of each instructor in the
 Biology department.
 29. Find the departments that have the highest average salary.
