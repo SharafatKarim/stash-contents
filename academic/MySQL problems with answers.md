@@ -1105,32 +1105,127 @@ having avg(salary) > 42000;
 'Statistics'
 ```
 35. Find the maximum across all departments of the total salary at each department.
+```sql
+select sum(salary)
+from department 
+natural join instructor
+group by dept_name
+order by sum(salary) desc
+limit 1;
+
+SELECT MAX(total_salary) AS max_total_salary
+FROM (
+    SELECT dept_name, SUM(salary) AS total_salary
+    FROM instructor
+    GROUP BY dept_name
+) AS dept_salaries;
+
+-- small db
+# max_total_salary
+'232000.00'
+
+-- big db
+# max_total_salary
+'406772.65'
+```
 36. List all departments along with the number of instructors in each department.
+```sql
+select dept_name, count(ID)
+from department
+natural left join instructor
+group by dept_name;
+
+-- small data
+# dept_name, count(ID)
+'Biology', '1'
+'Comp. Sci.', '3'
+'Elec. Eng.', '1'
+'Finance', '2'
+'History', '2'
+'Music', '1'
+'Physics', '2'
+
+-- big data
+# dept_name, count(ID)
+'Accounting', '4'
+'Astronomy', '1'
+'Athletics', '5'
+'Biology', '2'
+'Civil Eng.', '0'
+'Comp. Sci.', '2'
+'Cybernetics', '4'
+'Elec. Eng.', '4'
+'English', '4'
+'Finance', '1'
+'Geology', '1'
+'History', '0'
+'Languages', '3'
+'Marketing', '4'
+'Math', '0'
+'Mech. Eng.', '2'
+'Physics', '2'
+'Pol. Sci.', '3'
+'Psychology', '2'
+'Statistics', '6'
+```
 
 ## Problem set 3
 
-37. Find the titles of courses in the Comp. Sci. department that have 3 credits.
-38. Find the IDs of all students who were taught by an instructor named Einstein; make
-sure there are no duplicates in the result.
-39. Find the ID and name of each student who has taken at least one Comp. Sci. course;
-make sure there are no duplicate names in the result.
-40. Find the course id, section id, and building for each section of a Biology course.
-41. Output instructor names sorted by the ratio of their salary to their department's budget
-(in ascending order).
-42. Output instructor names and buildings for each building an instructor has taught in.
-Include instructor names who have not taught any classes (the building name should
-be NULL in this case).
-43. Find the names of those departments whose budget is higher than that of Astronomy.
-List them in alphabetic order.1
-44. Output instructor names and buildings for each building an instructor has taught in.
-Include instructor names who have not taught any classes (the building name should
-be NULL in this case).
-45. For each student who has retaken a course at least twice (i.e., the student has taken the
-course at least three times), show the course ID and the student's ID. Please display
-your results in order of course ID and do not display duplicate rows.
+1. Find the titles of courses in the Comp. Sci. department that have 3 credits.
+```sql
+select title
+from course
+where dept_name = "Comp. Sci."
+and credits = 3;
 
-46. Find the names of Biology students who have taken at least 3 Accounting
-courses
-47. Find the rank and name of the 10 students who earned the most A grades (A-,
+-- small db
+# title
+'Robotics'
+'Image Processing'
+'Database System Concepts'
+
+-- large db
+# title
+'International Finance'
+'Computability Theory'
+'Japanese'
+```
+2. Find the IDs of all students who were taught by an instructor named Einstein; make
+sure there are no duplicates in the result.
+```sql
+select takes_table.ID 
+from takes takes_table
+join teaches teaches_table
+	on takes_table.course_id = teaches_table.course_id
+    and takes_table.sec_id = teaches_table.sec_id
+    and takes_table.semester = teaches_table.semester
+    and takes_table.year = teaches_table.year 
+where teaches_table.ID = ( select ID from instructor
+where name = "Einstein" ) ;
+
+-- small db
+# ID
+'44553'
+```
+3. Find the ID and name of each student who has taken at least one Comp. Sci. course;
+make sure there are no duplicate names in the result.
+4. Find the course id, section id, and building for each section of a Biology course.
+5. Output instructor names sorted by the ratio of their salary to their department's budget
+(in ascending order).
+6. Output instructor names and buildings for each building an instructor has taught in.
+Include instructor names who have not taught any classes (the building name should
+be NULL in this case).
+7. ~~~Find the names of those departments whose budget is higher than that of Astronomy.
+List them in alphabetic order.~~~ 
+8. Output instructor names and buildings for each building an instructor has taught in.
+Include instructor names who have not taught any classes (the building name should
+be NULL in this case).
+9. ~~~For each student who has retaken a course at least twice (i.e., the student has taken the
+course at least three times), show the course ID and the student's ID. Please display
+your results in order of course ID and do not display duplicate rows.~~~
+
+10. ~~~Find the names of Biology students who have taken at least 3 Accounting
+courses~~~
+11. ~~~Find the rank and name of the 10 students who earned the most A grades (A-,
 A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does
-not support window functions.
+not support window functions.~~~
