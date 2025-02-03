@@ -949,13 +949,161 @@ where salary > ( select min(T.salary) from (
 ```
 28. Find the names of all instructors that have a salary value greater than that of each instructor in the
 Biology department.
-29. Find the departments that have the highest average salary.
+```sql
+select name
+from instructor
+where salary > ( select max(T.salary) from (
+	select salary
+    from instructor
+    where dept_name = "Biology"
+) as T );
+
+-- small db
+# name
+'Wu'
+'Einstein'
+'Gold'
+'Katz'
+'Singh'
+'Brandt'
+'Kim'
+
+-- big db
+# name
+'Yazdi'
+'Wieland'
+'Liley'
+'Atanassov'
+'Gustafsson'
+'Bourrier'
+'Bondi'
+'Arias'
+'Luo'
+'Romero'
+'Lent'
+'Sarkar'
+'Shuming'
+'Bancilhon'
+'Jaekel'
+'McKinnon'
+'Mingoz'
+'Pimenta'
+'Sullivan'
+'Voronina'
+'Kenje'
+'Mahmoud'
+'Levine'
+'Bietzk'
+'Sakurai'
+'Mird'
+'Dale'
+```
+29. Find the departments that have the highest average salary. 
+```sql
+select dept_name
+from instructor
+group by dept_name
+order by avg(salary) desc
+limit 1;
+
+-- small db
+# dept_name
+'Physics'
+
+-- small db
+# dept_name
+'Physics'
+```
 30. Find all courses taught in both the Fall 2009 semester and in the Spring-2010 semester.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+```
 31. Find all students who have taken all the courses offered in the Biology department.
+```sql
+with cnt as (
+	select count(course_id) as ct
+    from course 
+    where dept_name = "Biology"
+)
+select ID
+from takes
+where course_id in (
+	select course_id
+    from course
+    where dept_name = "Biology"
+) 
+group by ID
+having count(*) = (
+	select ct from cnt
+);
+```
 32. Find all courses that were offered at most once in 2009.
+```sql
+select course_id 
+from takes
+where year = 2009 
+group by course_id
+having count(*) = 1;
+```
 33. Find all courses that were offered at least twice in 2009.
+```sql
+select course_id 
+from takes
+where year = 2009 
+group by course_id
+having count(*) > 1;
+```
 34. Find the average instructors' salaries of those departments where the average salary is greater than
 $42,000.
+```sql
+select dept_name
+from department D
+where ( select avg(salary) from (
+	select salary
+    from instructor I
+    where D.dept_name = I.dept_name
+) as T ) > 42000;
+
+select distinct dept_name
+from instructor
+group by dept_name
+having avg(salary) > 42000;
+
+-- small db
+# dept_name
+'Biology'
+'Comp. Sci.'
+'Elec. Eng.'
+'Finance'
+'History'
+'Physics'
+
+-- big db
+# dept_name
+'Accounting'
+'Astronomy'
+'Athletics'
+'Biology'
+'Comp. Sci.'
+'Cybernetics'
+'Elec. Eng.'
+'English'
+'Finance'
+'Geology'
+'Languages'
+'Marketing'
+'Mech. Eng.'
+'Physics'
+'Pol. Sci.'
+'Psychology'
+'Statistics'
+```
 35. Find the maximum across all departments of the total salary at each department.
 36. List all departments along with the number of instructors in each department.
 
