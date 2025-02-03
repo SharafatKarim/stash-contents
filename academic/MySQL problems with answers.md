@@ -648,6 +648,11 @@ where semester = "Fall" and year = 2009;
 select course_id from teaches
 where (semester = "Fall" and year = 2009) or (semester = "Spring" and year = 2010);
 
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+union ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
 -- big db
 # course_id
 '105'
@@ -668,12 +673,100 @@ where (semester = "Fall" and year = 2009) or (semester = "Spring" and year = 201
 ```sql
 select course_id from teaches
 where (semester = "Fall" and year = 2009) and (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+intersect ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
 ```
 15. Find all courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
+```sql
+select course_id from teaches
+where (semester = "Fall" and year = 2009) and not (semester = "Spring" and year = 2010);
+
+( select course_id from teaches
+where semester = "Fall" and year = 2009 )
+except ( select course_id from teaches
+where semester = "Spring" and year = 2010 );
+
+-- big db
+# course_id
+'105'
+'237'
+'242'
+'304'
+'334'
+'486'
+'960'
+```
 16. Find all instructors who appear in the instructor relation with null values for salary.
+```sql
+select * from instructor
+where salary = NULL;
+```
 17. Find the average salary of instructors in the Finance department.
+```sql
+select avg(T.salary) from
+( select salary from instructor
+where dept_name = "Finance" ) as T;
+
+-- small db
+# avg(T.salary)
+'85000.000000'
+
+-- big db
+# avg(T.salary)
+'105311.380000'
+```
 18. Find the total number of instructors who teach a course in the Spring-2010 semester.
+```sql
+select  count(T.id) from
+( select id from instructor
+	natural join teaches
+    where semester = "Spring" 
+    and year = 2010 ) as T ;
+
+-- big db
+# count(T.id)
+'6'
+```
 19. Find the average salary in each department.
+```sql
+select dept_name, avg(salary)
+from department
+natural join instructor
+group by dept_name;
+
+-- small db
+# dept_name, avg(salary)
+'Biology', '72000.000000'
+'Comp. Sci.', '77333.333333'
+'Elec. Eng.', '80000.000000'
+'Finance', '85000.000000'
+'History', '61000.000000'
+'Music', '40000.000000'
+'Physics', '91000.000000'
+
+-- big db
+# dept_name, avg(salary)
+'Accounting', '48716.592500'
+'Athletics', '77098.198000'
+'Pol. Sci.', '100053.073333'
+'Psychology', '61143.050000'
+'Languages', '57421.856667'
+'English', '72089.050000'
+'Statistics', '67795.441667'
+'Elec. Eng.', '74162.740000'
+'Comp. Sci.', '98133.470000'
+'Marketing', '84097.437500'
+'Astronomy', '79070.080000'
+'Mech. Eng.', '79813.020000'
+'Physics', '114576.900000'
+'Cybernetics', '96346.567500'
+'Finance', '105311.380000'
+'Geology', '99382.590000'
+'Biology', '61287.250000'
+```
 20. Find the number of instructors in each department who teach a course in the Spring-2010 semester.
 21. List out the departments where the average salary of the instructors is more than $42,000.
 22. For each course section offered in 2009, find the average total credits (tot cred) of all students enrolled
