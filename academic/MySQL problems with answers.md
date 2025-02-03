@@ -1324,20 +1324,25 @@ order by (salary/ budget) asc;
 'Bourrier'
 'Bondi'
 ```
+
 6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
+
 7. ~~~Find the names of those departments whose budget is higher than that of Astronomy.
 List them in alphabetic order.~~~ 
+
 8. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
+
 9. ~~~For each student who has retaken a course at least twice (i.e., the student has taken the
 course at least three times), show the course ID and the student's ID. Please display
 your results in order of course ID and do not display duplicate rows.~~~
 
 10. ~~~Find the names of Biology students who have taken at least 3 Accounting
 courses~~~
+
 11. ~~~Find the rank and name of the 10 students who earned the most A grades (A-,
 A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does
 not support window functions.~~~
