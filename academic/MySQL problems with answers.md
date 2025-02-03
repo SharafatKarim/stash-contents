@@ -1232,6 +1232,23 @@ where takes.course_id in (
 -- big output
 ```
 4. Find the course id, section id, and building for each section of a Biology course.
+```sql
+select course_id, sec_id, building 
+from section
+natural join course
+where dept_name = "Biology";
+
+-- small db
+# course_id, sec_id, building
+'BIO-101', '1', 'Painter'
+'BIO-301', '1', 'Painter'
+
+-- big db
+# course_id, sec_id, building
+'415', '1', 'Lamberton'
+'559', '1', 'Lamberton'
+'702', '1', 'Saucon'
+```
 5. Output instructor names sorted by the ratio of their salary to their department's budget
 (in ascending order).
 6. Output instructor names and buildings for each building an instructor has taught in.
