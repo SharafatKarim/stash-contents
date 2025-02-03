@@ -108,7 +108,7 @@ course_id sec_id
 867 2
 ```
 
-1. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like 'Tort Law' or 'Environmental Law'). 
+6. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like 'Tort Law' or 'Environmental Law'). 
 ```
 name course_count
 Nakajima 4
@@ -118,7 +118,7 @@ Nanda 4
 Schinag 4
 ```
 
-2. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use
+7. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use
 alphabetical order by name to break ties. Note: the browser SQLite does not support window
 functions. 
 ```
@@ -136,76 +136,76 @@ rank name
 ```
 
 ## Problem set 2
-3. Find out the ID and salary of the instructors.
-4. Find out the ID and salary of the instructor who gets more than $85,000.
-5. Find out the department names and their budget at the university.
-6. List out the names of the instructors from Computer Science who have more than $70,000.
-7. For all instructors in the university who have taught some course, find their names and the course ID of
+1. Find out the ID and salary of the instructors.
+2. Find out the ID and salary of the instructor who gets more than $85,000.
+3. Find out the department names and their budget at the university.
+4. List out the names of the instructors from Computer Science who have more than $70,000.
+5. For all instructors in the university who have taught some course, find their names and the course ID of
 all courses they taught.
-8. Find the names of all instructors whose salary is greater than at least one instructor in the Biology
+6. Find the names of all instructors whose salary is greater than at least one instructor in the Biology
 department.
 
-9. Find the advisor of the student with ID 12345
-10. Find the average salary of all instructors.
-11. Find the names of all departments whose building name includes the substring &#39;Watson&#39;.
-12. Find the names of instructors with salary amounts between $90,000 and $100,000.
-13. Find the instructor names and the courses they taught for all instructors in the Biology department who
+7. Find the advisor of the student with ID 12345
+8. Find the average salary of all instructors.
+9. Find the names of all departments whose building name includes the substring &#39;Watson&#39;.
+10. Find the names of instructors with salary amounts between $90,000 and $100,000.
+11. Find the instructor names and the courses they taught for all instructors in the Biology department who
 have taught some course.
-14. Find the courses taught in Fall-2009 semester.
-15. Find the set of all courses taught either in Fall-2009 or in Spring-2010.
-16. Find the set of all courses taught in the Fall-2009 as well as in Spring-2010.
-17. Find all courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
-18. Find all instructors who appear in the instructor relation with null values for salary.
-19. Find the average salary of instructors in the Finance department.
-20. Find the total number of instructors who teach a course in the Spring-2010 semester.
-21. Find the average salary in each department.
-22. Find the number of instructors in each department who teach a course in the Spring-2010 semester.
-23. List out the departments where the average salary of the instructors is more than $42,000.
-24. For each course section offered in 2009, find the average total credits (tot cred) of all students enrolled
+12. Find the courses taught in Fall-2009 semester.
+13. Find the set of all courses taught either in Fall-2009 or in Spring-2010.
+14. Find the set of all courses taught in the Fall-2009 as well as in Spring-2010.
+15. Find all courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
+16. Find all instructors who appear in the instructor relation with null values for salary.
+17. Find the average salary of instructors in the Finance department.
+18. Find the total number of instructors who teach a course in the Spring-2010 semester.
+19. Find the average salary in each department.
+20. Find the number of instructors in each department who teach a course in the Spring-2010 semester.
+21. List out the departments where the average salary of the instructors is more than $42,000.
+22. For each course section offered in 2009, find the average total credits (tot cred) of all students enrolled
 in the section, if the section had at least 2 students.
-25. Find all the courses taught in both the Fall-2009 and Spring-2010 semesters.
-26. Find all the courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
-27. Select the names of instructors whose names are neither &quot;Mozart&quot; nor &quot;Einstein&quot;.
-28. Find the total number of (distinct) students who have taken course sections taught by the instructor
+23. Find all the courses taught in both the Fall-2009 and Spring-2010 semesters.
+24. Find all the courses taught in the Fall-2009 semester but not in the Spring-2010 semester.
+25. Select the names of instructors whose names are neither &quot;Mozart&quot; nor &quot;Einstein&quot;.
+26. Find the total number of (distinct) students who have taken course sections taught by the instructor
 with ID 110011.
-29. Find the ID and names of all instructors whose salary is greater than at least one instructor in the History
+27. Find the ID and names of all instructors whose salary is greater than at least one instructor in the History
 department.
-30. Find the names of all instructors that have a salary value greater than that of each instructor in the
+28. Find the names of all instructors that have a salary value greater than that of each instructor in the
 Biology department.
-31. Find the departments that have the highest average salary.
-32. Find all courses taught in both the Fall 2009 semester and in the Spring-2010 semester.
-33. Find all students who have taken all the courses offered in the Biology department.
-34. Find all courses that were offered at most once in 2009.
-35. Find all courses that were offered at least twice in 2009.
-36. Find the average instructors&#39; salaries of those departments where the average salary is greater than
+29. Find the departments that have the highest average salary.
+30. Find all courses taught in both the Fall 2009 semester and in the Spring-2010 semester.
+31. Find all students who have taken all the courses offered in the Biology department.
+32. Find all courses that were offered at most once in 2009.
+33. Find all courses that were offered at least twice in 2009.
+34. Find the average instructors&#39; salaries of those departments where the average salary is greater than
 $42,000.
-37. Find the maximum across all departments of the total salary at each department.
-38. List all departments along with the number of instructors in each department.
+35. Find the maximum across all departments of the total salary at each department.
+36. List all departments along with the number of instructors in each department.
 
 ## Problem set 3
 
-39. Find the titles of courses in the Comp. Sci. department that have 3 credits.
-40. Find the IDs of all students who were taught by an instructor named Einstein; make
+1. Find the titles of courses in the Comp. Sci. department that have 3 credits.
+2. Find the IDs of all students who were taught by an instructor named Einstein; make
 sure there are no duplicates in the result.
-41. Find the ID and name of each student who has taken at least one Comp. Sci. course;
+3. Find the ID and name of each student who has taken at least one Comp. Sci. course;
 make sure there are no duplicate names in the result.
-42. Find the course id, section id, and building for each section of a Biology course.
-43. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
+4. Find the course id, section id, and building for each section of a Biology course.
+5. Output instructor names sorted by the ratio of their salary to their department&#39;s budget
 (in ascending order).
-44. Output instructor names and buildings for each building an instructor has taught in.
+6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
-45. Find the names of those departments whose budget is higher than that of Astronomy.
+7. Find the names of those departments whose budget is higher than that of Astronomy.
 List them in alphabetic order.1
-46. Output instructor names and buildings for each building an instructor has taught in.
+8. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
-47. For each student who has retaken a course at least twice (i.e., the student has taken the
+9. For each student who has retaken a course at least twice (i.e., the student has taken the
 course at least three times), show the course ID and the student&#39;s ID. Please display
 your results in order of course ID and do not display duplicate rows.
 
-48. Find the names of Biology students who have taken at least 3 Accounting
+10. Find the names of Biology students who have taken at least 3 Accounting
 courses
-49. Find the rank and name of the 10 students who earned the most A grades (A-,
+11. Find the rank and name of the 10 students who earned the most A grades (A-,
 A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does
 not support window functions.
