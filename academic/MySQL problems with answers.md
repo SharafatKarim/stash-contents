@@ -214,6 +214,8 @@ limit 10;
 '10', 'Sanchez'
 ```
 
+
+
 ## Problem set 2
 1. Find out the ID and salary of the instructors.
 ```sql
