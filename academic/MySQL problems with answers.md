@@ -1328,21 +1328,169 @@ order by (salary/ budget) asc;
 6. Output instructor names and buildings for each building an instructor has taught in.
 Include instructor names who have not taught any classes (the building name should
 be NULL in this case).
+```sql
+select name, building
+from instructor
+natural left join teaches 
+natural left join section;
 
-7. ~~~Find the names of those departments whose budget is higher than that of Astronomy.
-List them in alphabetic order.~~~ 
+-- small db 
+# name, building
+'Srinivasan', 'Packard'
+'Srinivasan', 'Watson'
+'Srinivasan', 'Taylor'
+'Wu', 'Packard'
+'Mozart', 'Packard'
+'Einstein', 'Watson'
+'El Said', 'Painter'
+'Gold', NULL
+'Katz', 'Packard'
+'Katz', 'Watson'
+'Califieri', NULL
+'Singh', NULL
+'Crick', 'Painter'
+'Crick', 'Painter'
+'Brandt', 'Taylor'
+'Brandt', 'Taylor'
+'Brandt', 'Taylor'
+'Kim', 'Taylor'
 
-8. Output instructor names and buildings for each building an instructor has taught in.
-Include instructor names who have not taught any classes (the building name should
-be NULL in this case).
+-- big db
+# name, building
+'Lembr', 'Saucon'
+'Lembr', 'Fairchild'
+'Bawa', 'Saucon'
+'Yazdi', NULL
+'Wieland', 'Saucon'
+'Wieland', 'Alumni'
+'Wieland', 'Saucon'
+'DAgostino', 'Fairchild'
+'DAgostino', 'Stabler'
+'DAgostino', 'Lambeau'
+'DAgostino', 'Lambeau'
+'DAgostino', 'Main'
+'DAgostino', 'Whitman'
+'DAgostino', 'Chandler'
+'DAgostino', 'Saucon'
+'DAgostino', 'Fairchild'
+'DAgostino', 'Taylor'
+'DAgostino', 'Nassau'
+'DAgostino', 'Taylor'
+'DAgostino', 'Lamberton'
+'Liley', 'Polya'
+'Kean', 'Saucon'
+'Kean', 'Polya'
+'Atanassov', 'Taylor'
+'Atanassov', 'Bronfman'
+'Moreira', NULL
+'Gustafsson', 'Gates'
+'Gustafsson', 'Drown'
+'Gustafsson', 'Main'
+'Gustafsson', 'Taylor'
+'Bourrier', 'Saucon'
+'Bourrier', 'Lamberton'
+'Bondi', 'Main'
+'Bondi', 'Power'
+'Bondi', 'Gates'
+'Soisalon-Soininen', NULL
+'Morris', 'Fairchild'
+'Morris', 'Chandler'
+'Morris', 'Saucon'
+'Morris', 'Polya'
+'Morris', 'Lamberton'
+'Arias', NULL
+'Murata', NULL
+'Tung', 'Saucon'
+'Tung', 'Gates'
+'Tung', 'Taylor'
+'Luo', 'Saucon'
+'Vicentino', 'Nassau'
+'Romero', 'Chandler'
+'Romero', 'Taylor'
+'Romero', 'Drown'
+'Romero', 'Lamberton'
+'Lent', 'Lamberton'
+'Sarkar', 'Lamberton'
+'Shuming', 'Power'
+'Konstantinides', NULL
+'Bancilhon', NULL
+'Hau', NULL
+'Dusserre', NULL
+'Desyl', NULL
+'Jaekel', 'Taylor'
+'Jaekel', 'Gates'
+'McKinnon', NULL
+'Gutierrez', NULL
+'Mingoz', 'Fairchild'
+'Mingoz', 'Lamberton'
+'Mingoz', 'Rathbone'
+'Mingoz', 'Saucon'
+'Mingoz', 'Lamberton'
+'Mingoz', 'Alumni'
+'Mingoz', 'Bronfman'
+'Mingoz', 'Lamberton'
+'Mingoz', 'Alumni'
+'Mingoz', 'Saucon'
+'Pimenta', 'Power'
+'Yin', NULL
+'Sullivan', 'Alumni'
+'Voronina', 'Taylor'
+'Voronina', 'Power'
+'Voronina', 'Whitman'
+'Voronina', 'Gates'
+'Voronina', 'Lamberton'
+'Voronina', 'Saucon'
+'Kenje', NULL
+'Mahmoud', 'Whitman'
+'Mahmoud', 'Lamberton'
+'Mahmoud', 'Taylor'
+'Mahmoud', 'Drown'
+'Mahmoud', 'Taylor'
+'Mahmoud', 'Power'
+'Pingr', NULL
+'Ullman ', 'Chandler'
+'Ullman ', 'Taylor'
+'Ullman ', 'Taylor'
+'Ullman ', 'Taylor'
+'Ullman ', 'Garfield'
+'Ullman ', 'Polya'
+'Levine', NULL
+'Queiroz', 'Lamberton'
+'Valtchev', 'Lamberton'
+'Valtchev', 'Saucon'
+'Bietzk', 'Whitman'
+'Choll', 'Main'
+'Arinb', NULL
+'Sakurai', 'Main'
+'Sakurai', 'Power'
+'Sakurai', 'Lambeau'
+'Sakurai', 'Power'
+'Mird', NULL
+'Bertolino', NULL
+'Dale', 'Taylor'
+'Dale', 'Power'
+'Dale', 'Fairchild'
+'Dale', 'Taylor'
+'Dale', 'Stabler'
+'Dale', 'Saucon'
+'Dale', 'Saucon'
+'Dale', 'Fairchild'
+'Dale', 'Saucon'
 
-9. ~~~For each student who has retaken a course at least twice (i.e., the student has taken the
+```
+
+7. ~~Find the names of those departments whose budget is higher than that of Astronomy.
+List them in alphabetic order.~~ 
+
+8. ~~Output instructor names and buildings for each building an instructor has taught in. Include instructor names who have not taught any classes (the building name should be NULL in this case).~~
+
+9. ~~For each student who has retaken a course at least twice (i.e., the student has taken the
 course at least three times), show the course ID and the student's ID. Please display
-your results in order of course ID and do not display duplicate rows.~~~
+your results in order of course ID and do not display duplicate rows.~~
 
-10. ~~~Find the names of Biology students who have taken at least 3 Accounting
-courses~~~
+10. ~~Find the names of Biology students who have taken at least 3 Accounting
+courses~~
 
-11. ~~~Find the rank and name of the 10 students who earned the most A grades (A-,
+11. ~~Find the rank and name of the 10 students who earned the most A grades (A-,
 A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does
-not support window functions.~~~
+not support window functions.~~
