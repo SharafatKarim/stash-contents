@@ -1,7 +1,7 @@
 ## Problem set 1
 
 Write the following queries in SQL, using this schema. The expected output is given for
-each query when run on `large-university.db` (download this file and run SQLite locally via
+each query when run on `large-university.db` (download this file and run SQLite locally via[[MySQL problems]]
 `sqlite3` large-university.db or upload to the browser-based version).
 
 1. Find the names of those departments whose budget is higher than that of Astronomy. List them in alphabetic order. 
