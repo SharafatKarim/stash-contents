@@ -119,8 +119,7 @@ Schinag 4
 ```
 
 7. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use
-alphabetical order by name to break ties. Note: the browser SQLite does not support window
-functions. 
+alphabetical order by name to break ties. Note: the browser SQLite does not support window functions. 
 ```
 rank name
 1 Neuhold
