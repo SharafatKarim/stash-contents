@@ -172,21 +172,19 @@ limit 1;
 6. Find student names and the number of law courses taken for students who have taken at least half of the available law courses. (These courses are named things like 'Tort Law' or 'Environmental Law'). 
 ```sql
 select name, count(*)
-from student as S
-join takes T on S.ID = T.ID
-where T.course_id in (
+from student as st
+natural join takes as tt
+where tt.course_id in (
 	select course_id
     from course
-    where title like "%Law%" )
-group by S.ID
-having count(*) >= ( 
-	select count(course_id) / 2 
-	from (   
-		select course_id
-		from course
-		where title like "%Law%" ) 
-        as D 
-	);
+    where title like "%Law%"
+)
+group by st.ID
+having count(*) > (
+	select count(*)/2
+    from course
+    where title like "%Law%"
+);
 
 # name, count(*)
 'Nakajima', '4'
@@ -196,7 +194,7 @@ having count(*) >= (
 'Schinag', '4'
 ```
 
-7. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does not support window functions. [**Ans didn't math with sample data**]
+7. Find the rank and name of the 10 students who earned the most A grades (A-, A, A+). Use alphabetical order by name to break ties. Note: the browser SQLite does not support window functions. 
 ```sql
 select row_number() over () as rnk, P.name from ( 
 	select name, count(*) as cnt
@@ -206,6 +204,14 @@ select row_number() over () as rnk, P.name from (
 	group by T.ID
     ) as P
 order by P.cnt desc, P.name
+limit 10;
+
+select row_number() over(order by count(*) desc, name) as rnk, name 
+from student st
+natural join takes tt
+where tt.grade in ("A+", "A", "A-")
+group by ID
+order by count(*) desc, name 
 limit 10;
 
 # rnk, name
@@ -221,6 +227,7 @@ limit 10;
 '10', 'Sanchez'
 ```
 
+> Here my answer didn't match with the sample because of the different sample database. My answer is based on the latest data, which can be grabbed from the official website :). Nothing to worry!
 
 
 ## Problem set 2
