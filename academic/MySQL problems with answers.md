@@ -158,6 +158,13 @@ HAVING COUNT(ID) = (
     ) AS subquery
 );
 
+select course_id, sec_id 
+from takes
+WHERE semester = 'Fall' AND year = 2010
+group by course_id, sec_id
+order by count(*) desc
+limit 1;
+
 # course_id, sec_id
 '867', '2'
 ```
