@@ -4,7 +4,10 @@ title: Flaric Admins
 # Intro
 
 Here let me list out the overall plans about how the new admin panel will be distributed.
-![](https://res.cloudinary.com/dte603aka/image/upload/v1733387984/backgrounds/spinned%20planets.jpg)
+
+To get the current stuff list, use the command `/stuff`. Can be used by anyone.
+
+![](https://res.cloudinary.com/sharafat/image/upload/v1733387984/backgrounds/spinned%20planets.jpg)
 
 ## 👑 Founder
 Founder is the group creator, with all the power from telegram and from the Bot
