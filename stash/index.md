@@ -13,4 +13,4 @@ Nothing exists here for now!
 # Development
 
 Useful things I have explored, that might be handy,
-- [[Development Thingy|Development]]
+- [[stash/Development/index|Development]]
