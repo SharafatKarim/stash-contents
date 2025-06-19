@@ -10,4 +10,7 @@ Nothing exists here for now!
 
 ---
 
-- [ ] Check other integration
+# Development
+
+Useful things I have explored, that might be handy,
+- [[Development Thingy|Development]]
