@@ -43,7 +43,7 @@ A bit of history sorted by year to easily remember I guess...
 ## Materialism
 সবকিছূই পদার্থ। মূলত brain এর জটিল অপারেশনের মাধ্যমেই mind তৈরি হয়
 ## Empiricism
-
+সকল ধরণের knowledge পঞ্চ ইন্দ্রিয় থেকে আসে
 ## Induction
 
 ## 
