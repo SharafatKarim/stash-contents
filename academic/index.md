@@ -15,4 +15,8 @@ And a book called silberchatz,
 
 # Networking
 Some networking related tools,
--  [[Networking Tools]]
+-  [[Networking Tools]] 
+
+# AI
+Let's explore a bit of AI...
+- [[History]]
