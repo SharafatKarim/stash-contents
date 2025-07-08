@@ -21,11 +21,21 @@ A bit of history sorted by year to easily remember I guess...
 চিন্তা করার মূলত ক্ষমতা
 ## AI
 চারটি সংজ্ঞা,
-- 
-## Rationality
-
+- মানুষের মতো চিন্তা করবে - observation + hypotheses
+- লজিকালি চিন্তা করবে - mathematics + engineering 
+- মানুষের মতো কাজ করবে
+- লজিকালি কাজ করবে
 ## Turing test
-
+একটা প্রোগ্রাম কিছূ প্রশ্ন তোমাকে দেয়ার পর তুমি যদি ধরতে না পারো এটা মানুষ লিখেছে নাকি কম্পিউটার
+যা যা দরকার হবে, এটা বাস্তবায়িত করতে,
+- natural language processing
+- knowledge representation
+- automated reasoning
+- machine learning
+- computer vision
+- robotics
+## Cognitive science
+সাধারণত মানুষের বা প্রাণীদের ব্যবহার আচার আচরণের ডেটার উপর ভিত্তি করে বানানো হয়। সাধারণত mind আর এটার process নিয়ে study
 ## Rationalism
 মানুষ একটা নির্দিষ্ট computation এর সাপেক্ষে সিদ্ধান্ত নিবে
 ## Dualism
