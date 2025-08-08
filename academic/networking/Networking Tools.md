@@ -4,6 +4,7 @@ Some command line based networking tools include,
 - ping
 - traceroute
 - nslookup (`bind` package in archlinux)
+- telnet ([inetutils](https://archlinux.org/packages/?name=inetutils)package in archlinux)
 
 ## GUI
 - wireshark
