@@ -28,3 +28,11 @@ sudo usermod -a -G wireshark $(whoami)
 ```
 
 3. And re-login and reboot.
+
+## Cisco packet tracer
+
+### Switch mac-address-table 
+In the CLI, hit enter, followed by `EN` (enter) and tthen type,
+```
+show mac-address-table
+```
