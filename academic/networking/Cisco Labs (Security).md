@@ -149,3 +149,89 @@ S1(config)#end
 
 S1#copy running-config startup-config
 ```
+
+## Switch Security
+
+### Same as router
+
+- **a.** `S1(config)# service password-encryption`
+    
+- **b.** `S1(config)# security passwords min-length 12`
+    
+- **c.**
+    
+    - `S1(config)# enable secret $cisco!PRIV*`
+        
+    - `S1(config)# line console 0`
+        
+    - `S1(config-line)# password $cisco!!CON*`
+        
+    - `S1(config-line)# exit`
+        
+    - `S1(config)# line vty 0 4`
+        
+    - `S1(config-line)# password $cisco!!VTY*`
+        
+    - `S1(config-line)# exit`
+        
+- **d.**
+    
+    - `S1(config)# username SSHadmin secret 55HAdm!n2020`
+        
+    - `S1(config)# ip domain-name ccna-lab.com`
+        
+    - `S1(config)# crypto key generate rsa general-keys modulus 1024`
+        
+    - `S1(config)# line vty 0 4`
+        
+    - `S1(config-line)# transport input ssh`
+        
+    - `S1(config-line)# login local`
+        
+    - `S1(config-line)# exit`
+        
+- **e.**
+    
+    - `S1(config)# line console 0`
+        
+    - `S1(config-line)# exec-timeout 5 0`
+        
+    - `S1(config-line)# exit`
+        
+    - `S1(config)# line vty 0 4`
+        
+    - `S1(config-line)# exec-timeout 5 0`
+        
+    - `S1(config-line)# exit`
+        
+    - `S1(config)# login block-for 120 attempts 3 within 60`
+
+### Disabling unused ports
+
+**a. Verify switch port status.**
+
+bash
+
+S1# show ip interface brief
+
+- You will see many interfaces like Fa0/1, Fa0/2, etc., that are "down/down" (not connected). You need to shut them down.
+    
+- **b. Shut down multiple interfaces.**
+    
+    bash
+    
+
+S1(config)# interface range f0/1-4 , f0/7-24 , g0/1-2
+S1(config-if-range)# shutdown
+S1(config-if-range)# exit
+
+- *This command shuts down all ports except Fa0/5 and Fa0/6, which are connected to R1 and PC-A.*
+    
+- **c. Verify that inactive interfaces are shut down.**
+    
+    bash
+    
+
+S1# show ip interface brief
+
+Now, the interfaces you shut down should show "administratively down/down".
