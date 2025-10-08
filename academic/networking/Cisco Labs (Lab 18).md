@@ -1,8 +1,9 @@
-For now I will focus on lab 18 for doing the full task,
+For now I will focus on lab 18 for doing the full CLI task,
 
 ![[Pasted image 20251008075945.png]]
 
-## 1) Subnetting & Addressing plan (from 192.168.3.0/24)
+> While connecting DCE, be sure to connect R1 ISP first, which will be DCE, and R2 will be DTE.
+## Subnetting & Addressing plan (from 192.168.3.0/24)
 
 For the requirements (two /27s for up to 28 hosts, a /28 for up to 14 hosts, a /28 for up to 7 hosts, and a point-to-point /30) we allocate:
 
@@ -26,7 +27,7 @@ For the requirements (two /27s for up to 28 hosts, a /28 for up to 14 hosts, a /
 
 ---
 
-## 2) Exact IP assignments (per your rules)
+## Exact IP assignments (per your rules)
 
 Existing Student LAN (192.168.3.0/27)
 
@@ -49,9 +50,13 @@ Existing WAN (192.168.3.96/30)
 
 DNS server address (for PCs): 192.168.3.77 (the Eagle_Server)
 
+
+And finally, the overral image is like,
+![[Pasted image 20251008085538.png]]
+
 ---
 
-## 3) R1-ISP — full IOS config (type these on R1)
+## R1-ISP — full IOS config (type these on R1)
 
 Make sure the display name in Packet Tracer for the device is R1-ISP and the hostname is set exactly as below.
 
@@ -90,7 +95,7 @@ R1-ISP# copy running-config startup-config
 
 ---
 
-## 4) R2-Central — full IOS config (type these on R2)
+## R2-Central — full IOS config (type these on R2)
 
 Set display name exactly R2-Central.
 
@@ -128,7 +133,7 @@ R2-Central# copy running-config startup-config
 
 ---
 
-## 5) S1-Central (2960) — CLI config (type on the switch)
+## S1-Central (2960) — CLI config (type on the switch)
 
 Make sure switch Display Name = S1-Central.
 
@@ -160,97 +165,4 @@ S1-Central# copy running-config startup-config
 
 ---
 
-## 6) PC 1A / PC 1B configuration (in Packet Tracer → PC → Desktop → IP Configuration)
-
-PC1A (Display name must be exactly `1A`)
-
-* IP Address: 192.168.3.1
-* Subnet Mask: 255.255.255.224
-* Default Gateway: 192.168.3.30
-* DNS Server: 192.168.3.77
-
-PC1B (Display name must be exactly `1B`)
-
-* IP Address: 192.168.3.2
-* Subnet Mask: 255.255.255.224
-* Default Gateway: 192.168.3.30
-* DNS Server: 192.168.3.77
-
-(Use the PC GUI → Desktop → IP Configuration.)
-
----
-
-## 7) Eagle_Server configuration (Device Display Name Eagle_Server)
-
-On the server device in Packet Tracer:
-
-Desktop → IP Configuration
-
-* IP Address: 192.168.3.77
-* Subnet Mask: 255.255.255.240
-* Default Gateway: 192.168.3.78
-* DNS Server: (you can leave blank or set to itself 192.168.3.77)
-
-Services → DNS
-
-* Turn DNS ON
-* Add record:
-
-  * Name: eagle-server.example.com
-  * Type: A
-  * Value: 192.168.3.77
-
-Services → HTTP
-
-* Turn HTTP ON
-
-(In Packet Tracer, the Server device name must be exactly `Eagle_Server` — set the Display Name in the device's Physical/Config area if necessary.)
-
----
-
-## 8) Verify / Test (commands and GUI tests)
-
-From routers (CLI):
-
-* show ip interface brief (verify interfaces and addresses)
-* show ip route (verify static/default routes installed)
-* ping 192.168.3.98 from R2 or ping 192.168.3.97 from R1 to test WAN.
-* ping 192.168.3.77 from PC (use PC Desktop → Command Prompt): ping eagle-server.example.com (this tests DNS and HTTP name resolution).
-
-From a PC:
-
-* In browser enter http://eagle-server.example.com — should load the server web page.
-
----
-
-## 9) Important details & grading-sensitive items
-
-* Names must match exactly (Display name and hostname): R1-ISP, R2-Central, S1-Central, 1A, 1B, Eagle_Server. Packet Tracer grading is strict.
-* Passwords: enable secret, console, and vty passwords on routers and switch must be `cisco`. (I used line console 0 and line vty 0 4 commands.)
-* Banners must be exactly:
-
-Tanvir (PSTU CSE 19), [10/5/25 8:56 PM]
-* Router R1: This is lab router R1-ISP. Authorized access only.
-  * Router R2: This is lab router R2-Central. Authorized access only.
-  * Switch: This is lab switch S1-Central. Authorized access only.
-* Clock rate: clock rate 64000 must be on R1-ISP serial 0/0/0 (the DCE side).
-* Save config on each IOS device: copy running-config startup-config.
-
----
-
-## 10) Quick checklist to help you use "Check Results"
-
-* [ ] Device Display names set exactly
-* [ ] Hostnames set exactly
-* [ ] Banners exact strings
-* [ ] Passwords = cisco (enable, console, vty)
-* [ ] Interfaces configured with the exact IP addresses listed above
-* [ ] R1 static route:
-  ip route 192.168.3.0 255.255.255.224 192.168.3.97
-* [ ] R2 default route:
-  ip route 0.0.0.0 0.0.0.0 192.168.3.98
-* [ ] R1 serial clock rate 64000 on S0/0/0 on R1
-* [ ] Switch VLAN1 IP and default gateway set
-* [ ] PC IP/DNS set to server IP 192.168.3.77
-* [ ] Server DNS entry eagle-server.example.com → 192.168.3.77 and HTTP service ON
-* [ ] All configs saved
+And testing phase...
