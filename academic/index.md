@@ -16,6 +16,7 @@ And a book called silberchatz,
 # Networking
 Some networking related tools,
 -  [[Networking Tools]] 
+- [[Cisco Labs (Lab 18)]]
 
 # AI
 Let's explore a bit of AI...
