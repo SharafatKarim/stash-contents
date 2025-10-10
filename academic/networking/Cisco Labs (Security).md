@@ -150,6 +150,11 @@ S1(config)#end
 S1#copy running-config startup-config
 ```
 
+## Erase Router config
+
+Router> enable
+Router# erase startup-config
+
 ## Switch Security
 
 ### Same as router
@@ -235,3 +240,12 @@ S1(config-if-range)# exit
 S1# show ip interface brief
 
 Now, the interfaces you shut down should show "administratively down/down".
+
+## Switch Erase
+
+Switch> enable
+Switch# show flash
+Switch# delete vlan.dat
+Switch# erase startup-config
+Switch# reload
+
