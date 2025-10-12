@@ -1,5 +1,5 @@
 
-# CLI
+# Router
 
 ## Basic router setup
 
@@ -106,6 +106,18 @@ R1(config)#login block-for 120 attempts 3 within 60
 R1(config)#
 ```
 
+## Erase Router config
+
+Router> enable
+Router# erase startup-config
+
+## SSH
+```sh
+
+
+```
+
+# Switch
 ## Basic switch setup
 
 ```sh
@@ -149,11 +161,6 @@ S1(config)#end
 
 S1#copy running-config startup-config
 ```
-
-## Erase Router config
-
-Router> enable
-Router# erase startup-config
 
 ## Switch Security
 
