@@ -22,3 +22,4 @@ Some networking related tools,
 Let's explore a bit of AI...
 - [[History]]
 - [[Chapter one]]
+- [[AI QS - Categorized Edition]]
