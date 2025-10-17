@@ -23,3 +23,4 @@ Let's explore a bit of AI...
 - [[History]]
 - [[Chapter one]]
 - [[AI QS - Categorized Edition]]
+- [[QS solve - Mahbub Sir]]
