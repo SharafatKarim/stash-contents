@@ -24,3 +24,8 @@ Let's explore a bit of AI...
 - [[Chapter one]]
 - [[AI QS - Categorized Edition]]
 - [[QS solve - Mahbub Sir]]
+
+# Assembly
+M A S M / N A S M  - WHICH ONE DO YOU WANT?
+
+- 
