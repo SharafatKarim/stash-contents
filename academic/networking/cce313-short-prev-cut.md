@@ -8,11 +8,6 @@
 |---|---|---|
 |Distinguish between host and end system; relation between hosts, clients, servers|⭐⭐|🔥 High|
 |What is a socket address?|⭐|Medium|
-|What is ARP? Fields in ARP packet|⭐⭐|🔥 High|
-|What is NAT and how it helps in address depletion?|⭐⭐|🔥 High|
-|What is subnetting / supernetting / CIDR and difference from default mask|⭐⭐⭐|🔥🔥 Very High|
-|Why subnet masks are used in networking|⭐⭐|High|
-|Discuss major protocols in networking (TCP, UDP, IP, HTTP, etc.)|⭐⭐|Medium|
 |Compare bus, ring, star, mesh topologies|⭐⭐|Medium|
 |Define unicast, multicast, broadcast|⭐⭐⭐|🔥🔥 Very High|
 |Explain store-and-forward packet switching|⭐⭐|High|
@@ -28,7 +23,9 @@
 
 |Question / Concept|Stars|Importance|
 |---|---|---|
+|What is subnetting / supernetting / CIDR and difference from default mask|⭐⭐⭐|🔥🔥 Very High|
 |Given IP → find netid, hostid, mask|⭐⭐⭐|🔥🔥 Very High|
+|Why subnet masks are used in networking|⭐⭐|High|
 |Given IP → find first & last address, total addresses|⭐⭐⭐⭐|🔥🔥🔥 Top Priority|
 |Design subnets or subblocks for ISP/cities/customers|⭐⭐⭐⭐|🔥🔥🔥 Top Priority|
 |Design given number of subnets (e.g., 8, 122)|⭐⭐|High|
@@ -36,6 +33,7 @@
 |Determine mask bits required for given subnets|⭐⭐|High|
 |Explain CIDR rules and restrictions|⭐⭐⭐|🔥🔥 Very High|
 |Compare subnetting and supernetting|⭐⭐|High|
+|What is NAT and how it helps in address depletion?|⭐⭐|🔥 High|
 |Describe three steps for subnet operation|⭐⭐⭐|High|
 
 ✅ **Sobuj Sir — IP Address Focus Points:**
@@ -67,19 +65,6 @@
 |Explain datagram vs virtual circuit subnet|⭐⭐|Medium|
 |Protocols involved in traceroute|⭐⭐|Medium|
 
-✅ **Sobuj Sir — Network Layer Focus Points:**
-
-1. **Data plane & control plane difference**
-    
-2. **Routing algorithms** (Dijkstra + Distance Vector)
-    
-3. **Forwarding process / table construction**
-    
-4. **Congestion control and datagram subnet concepts**
-    
-5. **Traceroute & control messages understanding**
-    
-
 ## **Sarna Mam**
 
 ### 🟣 1. Application Layer
@@ -91,8 +76,8 @@
 |HTTP persistent vs non-persistent connection|⭐⭐⭐|🔥🔥 Very High|
 |Explain cookie mechanism (Alice–Amazon)|⭐⭐|High|
 |How does web caching reduce delay|⭐⭐⭐|🔥🔥 Very High|
+|Discuss major protocols in networking (TCP, UDP, IP, HTTP, etc.)|⭐⭐|Medium|
 |How proxy server reduces delay|⭐⭐|High|
-|Explain MIME and its function|⭐⭐|Medium|
 |How SMTP marks end of message, compare with HTTP|⭐⭐|🔥🔥 Very High|
 |Persistent connection close in HTTP/1.1|⭐|Medium|
 |Encryption in HTTP|⭐|Medium|
@@ -119,6 +104,7 @@
 |Question / Concept|Stars|Importance|
 |---|---|---|
 |SMTP message boundary and comparison with HTTP|⭐⭐|🔥🔥 Very High|
+|Explain MIME and its function|⭐⭐|Medium|
 |MIME header for JPEG mail|⭐|Medium|
 |SMTP operation steps (connection, HELO, DATA, QUIT)|⭐|High|
 
