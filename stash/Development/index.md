@@ -16,6 +16,8 @@
 - [https://www.reactbits.dev/](https://www.reactbits.dev/) 
 - https://www.reactbits.dev/ 
 
+## Icons
+- react-icons
 ## Backend
 
 - appwrite
