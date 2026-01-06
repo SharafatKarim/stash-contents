@@ -28,3 +28,7 @@ Let's explore a bit of AI...
 # Assembly
 M A S M / N A S M  - WHICH ONE DO YOU WANT?
 - [[Assembly Refs]]
+
+## OS
+Let's start our journey with the great tour of OS,
+- Lab 1
