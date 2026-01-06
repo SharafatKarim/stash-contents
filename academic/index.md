@@ -31,4 +31,4 @@ M A S M / N A S M  - WHICH ONE DO YOU WANT?
 
 ## OS
 Let's start our journey with the great tour of OS,
-- Lab 1
+- [[OS Lab 1]]
