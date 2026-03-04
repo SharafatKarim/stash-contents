@@ -57,5 +57,7 @@ number. Assume that the number is already in the register.
 	2. (b) If this memory were constructed from 1K x 1 RAMS, how many memory chips would be required? just divide them
 	3. (c)  How many bits would be used for chip select? log 16
 6. What are the main differences between CD and DVD memories?
-Draw a block diagram showing the address and data lines for the 2732, and
-2764 EPROM chips.
+7. Draw a block diagram showing the address and data lines for the 2732, and 2764 EPROM chips.
+8. (a) How many address and data lines are required for a 1M x 16 memory chip?
+	(b) What is the size of a decoder with one chip enable (E) to obtain a 64K x 32 memory from K x 8 chips? Where are the inputs and outputs of the decoder connected?
+	
