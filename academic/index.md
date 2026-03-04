@@ -30,3 +30,7 @@ M A S M / N A S M  - WHICH ONE DO YOU WANT?
 ## OS
 Let's start our journey with the great tour of OS,
 - [[OS Lab 1]]
+
+# Peripheral
+Some stuff related to peripheral and interfacing,
+- [Exercise solve - peripheral]
