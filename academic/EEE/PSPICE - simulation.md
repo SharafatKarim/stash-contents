@@ -8,3 +8,4 @@
 ## otheres
 - d = diode (select diff model)
 - r = resistor
+- gnd_earth = ground
