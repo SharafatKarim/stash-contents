@@ -18,6 +18,13 @@ Useful things I have explored, that might be handy,
 
 ---
 
+## Tutorial
+
+Some of the tutorials of mine, can be listed like,
+- [[stash/Bash scripting/Index|Bash Scripting Tutorial]]
+
+---
+
 # PSTU
 
 PSTU based projects
