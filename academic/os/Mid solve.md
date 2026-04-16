@@ -206,6 +206,9 @@ Perform/Explain the following terminal operations:
     - List home directory, navigate folders, and create/delete files/directories.
         
     - Check disk space in partitions.
+      ```bash
+      lsblk
+      ```
         
     - Run commands with administrative/root privileges (`sudo`).
       ```bash
@@ -218,8 +221,14 @@ Perform/Explain the following terminal operations:
       ```
         
     - Check disk usage of a specific file.
+      ```bash
+      du -h compressed.zip
+      ```
         
     - Check network connection.
+      ```bash
+      ping sharafat.xyz
+      ```
         
 
 ## Mid Term Examination: July–December 2020
@@ -230,9 +239,9 @@ Perform/Explain the following terminal operations:
 
 **Total Marks:** 15 | **Instructions:** Answer the marked questions.
 
-### 1. FCFS Scheduling Analysis [10]
+### ~~1. FCFS Scheduling Analysis [10]~~
 
-Consider three CPU-bound processes arriving at an FCFS scheduler:
+~~Consider three CPU-bound processes arriving at an FCFS scheduler:~~
 
 |   |   |   |
 |---|---|---|
@@ -241,14 +250,14 @@ Consider three CPU-bound processes arriving at an FCFS scheduler:
 |$P_2$|1|12|
 |$P_3$|5|1|
 
-- **Tasks:** Give the schedule (Gantt Chart) and compute the average waiting time.
+- ~~**Tasks:** Give the schedule (Gantt Chart) and compute the average waiting time.~~
     
-- **Analysis:** Define the "Convoy Effect." Provide an alternative arrival order that improves average waiting time and a second order that demonstrates the convoy effect.
+- ~~**Analysis:** Define the "Convoy Effect." Provide an alternative arrival order that improves average waiting time and a second order that demonstrates the convoy effect.~~
     
 
-### 2. Comparative Scheduling [10]
+### ~~2. Comparative Scheduling [10]~~
 
-Compare the average waiting time for FCFS, SJF, and SRTF for the following processes:
+~~Compare the average waiting time for FCFS, SJF, and SRTF for the following processes:~~
 
 |   |   |   |
 |---|---|---|
@@ -258,30 +267,42 @@ Compare the average waiting time for FCFS, SJF, and SRTF for the following proce
 |$P_3$|5|4|
 |$P_4$|6|6|
 
-### 3. Algorithm Simulation
+### ~~3. Algorithm Simulation~~
 
-**[✓] 3. Simulate the CPU scheduling algorithm Round-Robin.** **[10]**
+~~**[✓] 3. Simulate the CPU scheduling algorithm Round-Robin.** **[10]**~~
 
-4. Simulate the Priority Scheduling algorithm (Random). **[10]**
+4. ~~Simulate the Priority Scheduling algorithm (Random). **[10]**~~
 
-5. Simulate the First Come First Serve (FCFS) algorithm. **[10]**
+5. ~~Simulate the First Come First Serve (FCFS) algorithm. **[10]**~~
 
-6. Simulate the Shortest Job First (SJF) (Non-Preemptive) algorithm. **[10]**
+6. ~~Simulate the Shortest Job First (SJF) (Non-Preemptive) algorithm. **[10]**~~
 
-7. Simulate the Shortest Job First (SJF) algorithm. **[10]**
+7. ~~Simulate the Shortest Job First (SJF) algorithm. **[10]**~~
 
-8. Simulate the Shortest Remaining Time (SRT) algorithm. **[10]**
+8. ~~Simulate the Shortest Remaining Time (SRT) algorithm. **[10]**~~
 
 ### 9. Linux Customization & Management [05]
 
 **[✓] Tasks:**
 
 1. Change wallpaper and screensaver via Linux command line.
+   ```bash
+   gsettings set org.gnome.desktop.background <<image-name/path>>
+   ```
     
 2. Create a directory (student name), create a file within, and copy it to a new directory in the home folder.
+   ```bash
+   mkdir sharafat
+   touch text.txt
+   cp /home/sharafat/sharafat/test.txt /home/sharafat/test
+   cp test.txt ~/test
+   ```
     
 3. Create disk partitions.
+   ```bash
+   lsblk
+   ```
     
-4. Install and configure a printer.
+4. *Install and configure a printer.*
     
 5. Perform file copy, cut, and paste operations.
