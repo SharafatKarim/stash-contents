@@ -63,18 +63,49 @@ Perform/Explain the following terminal operations:
    ```
     
 4. Remove empty directories from the directory list.
+   ```bash
+   find . -type d -delete
+   ```
     
 5. File copy/cut and paste operations via terminal.
+   ```bash
+   cp source/ destination/
+   mv source/ destination/
+   ```
     
 6. Download files from the internet.
+   ```bash
+   wget URL
+   aria2c URL
+   ```
     
 7. Display the current user's name.
+   ```bash
+   whoami
+   echo $USER
+   ```
     
 8. View the calendar in the terminal.
+   ```bash
+   cal
+   cal 8 11 2002
+   ```
     
 9. Check the details of the file system.
+   ```bash
+   neofetch
+   fastfetch
+   lscpu
+   lsblk
+   ```
     
 10. Check lines, word count, and characters in a file using different options.
+    ```bash
+    wc filename
+    wc -l filename
+    wc -c filename
+    wc --help
+    ```
     
 
 ## Mid Term Examination: July–December 2022 (PART-B)
@@ -86,32 +117,74 @@ Perform/Explain the following terminal operations:
 **Total Marks:** 08
 
 1. **Compiling Environment:** Running a C/C++ Program in Linux. **[02]**
+   ```bash
+   g++ input.cpp
+	.\a.exe
+   ```
     
 2. **Linux Shell Commands:** Use commands to perform the following: **[06]**
     
     - (i) Show home directory of your user.
+      ```bash
+      echo $HOME
+      ```
         
     - (ii) List files in the current directory.
+      ```bash
+      ls
+      ```
         
     - (iii) Change directory.
+      ```bash
+      cd
+      ```
         
     - (iv) Create a folder/directory.
+      ```bash
+      mkdir name
+      ```
         
     - (v) Delete files and directories.
+      ```bash
+      rm filename
+      ```
         
     - (vi) Create a file.
+      ```bash
+      touch file.txt
+      ```
         
     - (vii) Access manual pages (help) for a command.
+      ```bash
+      ls --help
+      man ls
+      ```
         
     - (viii) Change file permissions (make a file executable).
+      ```bash
+      chmod +x filename
+      ```
         
     - (ix) Move files via command line.
+      ```bash
+      mv source destination
+      ```
         
     - (x) Locate a file in the system.
+      ```bash
+      ls -R | grep input.jpg
+      ```
         
     - (xi) Check server connectivity (ping).
+      ```bash
+      ping 9.9.9.9
+      ping -c 5 sharafat.xyz
+      ```
         
     - (xii) Redirect data/text into a file.
+      ```bash
+      ping -c 5 sharafat.xyz > file.txt
+      ```
         
 
 ## Mid Term Examination: July–December 2021
@@ -135,8 +208,14 @@ Perform/Explain the following terminal operations:
     - Check disk space in partitions.
         
     - Run commands with administrative/root privileges (`sudo`).
+      ```bash
+      sudo commmand
+      ```
         
     - Compress files into a `.zip` archive.
+      ```bash
+      zip compressed.zip file_1 file_2 ...
+      ```
         
     - Check disk usage of a specific file.
         
