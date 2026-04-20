@@ -167,7 +167,7 @@ Perform/Explain the following terminal operations:
         
     - (ix) Move files via command line.
       ```bash
-      mv source destination
+      mv source/ destination/
       ```
         
     - (x) Locate a file in the system.
@@ -198,8 +198,16 @@ Perform/Explain the following terminal operations:
 1. Installation of Linux with Virtual Machine. **[01]**
     
 2. Running a C/C++ Program in Linux. **[02]**
+   ```bash
+   g++ input.cpp
+	.\a.exe
+   ```
     
 3. Running a Java Code in Linux. **[02]**
+   ```bash
+   javac Main.java
+   java Main
+   ```
     
     **[✓] 4. System Administration & Navigation Commands: [10]**
     
