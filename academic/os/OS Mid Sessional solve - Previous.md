@@ -1,7 +1,5 @@
 # Operating Systems Sessional: Mid-Term Examination Archive
 
-This document contains a compilation of Mid-Term Examination questions for the course **CIT 322: Operating Systems Sessional**, spanning sessions from 2017 to 2023.
-
 ## Mid Term Examination: July–December 2023
 
 **Course Code:** CIT 322 | **Course Title:** Operating Systems Sessional

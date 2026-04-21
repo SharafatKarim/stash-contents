@@ -109,5 +109,32 @@ int main() {
 
 ## C++
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+void func() {
+    cout << "hello from a thread..." << endl;
+}
+
+int main() {
+    thread t1(func);
+    t1.join();
+
+    cout << "Thread finished!" << endl;
+}
+```
+
+## Python
+```python
+import threading
+
+def func():
+    print("Hello from a thread!")
+
+t1 = threading.Thread(target=func)
+
+t1.start()
+t1.join()
+
+print("Thread finished!")
 ```
