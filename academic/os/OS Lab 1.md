@@ -93,3 +93,31 @@ Finally compile and run,
 g++ input.cpp
 .\a.out
 ```
+
+## Running Programs in Linux
+
+### C/C++ code
+
+```bash
+g++ input.c
+./a.out
+```
+
+### Java code
+```bash
+javac Main.java
+java Main
+```
+
+Here's an example java code,
+```java
+public class Main{
+    public static void main(String args[]){
+     System.out.println("Hello, World!");
+    }
+}
+```
+### Python code
+```bash
+python main.py
+```
