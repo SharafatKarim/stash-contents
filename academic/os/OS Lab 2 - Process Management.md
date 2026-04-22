@@ -108,6 +108,7 @@ int main() {
 # Threading
 
 ## C++
+### Manual Threads
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
@@ -117,6 +118,33 @@ void func() {
 }
 
 int main() {
+    thread t1(func);
+    t1.join();
+
+    cout << "Thread finished!" << endl;
+}
+```
+
+### Vectored Threads
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+void func() {
+    cout << "hello from a thread..." << endl;
+}
+
+int main() {
+    vector<thread> threads(5);
+
+    for (int i=0; i<5; i++) {
+        threads.emplace_back(func);
+    }
+    for (auto& i: threads) {
+        if (i.joinable())
+            i.join();
+    }
+
     thread t1(func);
     t1.join();
 
