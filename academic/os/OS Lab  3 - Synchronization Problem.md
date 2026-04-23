@@ -231,6 +231,8 @@ int main() {
 ```
 
 ### Compare & Swap
+
+#### With built-in lib
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -274,6 +276,42 @@ int main() {
     t2.join();  
     cout << "Final bal. -> " << balance << endl;
 
+    return 0;
+}
+```
+
+#### Without built-in lib
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int available_seats = 1;
+
+int compare_and_exchange(int expected, int desired) {
+    int result = available_seats;
+    if (available_seats == expected) {
+        available_seats = desired;
+    }
+    return 1 - result;
+}
+
+void book_seat(int num) {
+    while (compare_and_exchange(1, 0))
+        printf("%d couldn't work\n", num);
+
+    // critical
+    printf("%d took the seat\n", num);
+
+    // remainder section
+    available_seats = 1;
+}
+
+int main() {
+    thread t1(book_seat, 1);
+    thread t2(book_seat, 2);
+
+    t1.join();
+    t2.join();
     return 0;
 }
 ```
